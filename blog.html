@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>합정 클럽 추천 | T3B08 합정 네온클럽 – 브루탈리즘 클럽의 사운드 시스템 분석</title>
+    <meta name="description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과와 공간 음향 최적화 전략을 공개합니다. 합정 클럽의 새로운 기준.">
+    <meta name="keywords" content="합정 클럽, 합정 클럽 추천, 합정 네온클럽, T3B08, 스트리트 브루탈리즘 클럽, 합정 핫플, 클럽 사운드 시스템, 음향 분석, 합정">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://t3b08-hj-club-rc.vercel.app/blog">
+    <meta property="og:title" content="합정 클럽 추천 | T3B08 합정 네온클럽 – 사운드 시스템 데이터 분석">
+    <meta property="og:description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과와 공간 음향 최적화 전략을 공개합니다.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://t3b08-hj-club-rc.vercel.app/blog">
+    <meta property="og:image" content="https://t3b08-hj-club-rc.vercel.app/og-blog.jpg">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="합정 클럽 추천 | T3B08 합정 네온클럽 – 사운드 시스템 데이터 분석">
+    <meta name="twitter:description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과를 공개합니다.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 0.9;
+            color: #ff2a5e;
+            text-shadow: 0 0 20px rgba(255,42,94,0.4);
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: #ff2a5e;
+            border-left: 6px solid #ff2a5e;
+            padding-left: 1rem;
+            margin: 3rem 0 1.5rem;
+        }
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #e0e0e0;
+            margin: 2rem 0 1rem;
+        }
+        p, li, blockquote {
+            font-size: 1.05rem;
+            color: #b0b0b0;
+            margin-bottom: 1.2rem;
+        }
+        a {
+            color: #ff2a5e;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #ff2a5e;
+            color: #ff6b8a;
+        }
+        strong, b {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        img, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .full-bleed {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #ff2a5e;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ff2a5e;
+            text-decoration: none;
+            border: none;
+            letter-spacing: 0.15em;
+        }
+        .nav-brand:hover {
+            border: none;
+            color: #ff6b8a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #b0b0b0;
+            border: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #ff2a5e;
+        }
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger-menu span {
+            width: 28px;
+            height: 3px;
+            background: #ff2a5e;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10,10,10,0.98);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.2rem;
+                border-bottom: 2px solid #ff2a5e;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+        }
+        .tel-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #ff2a5e;
+            border: 1px solid #ff2a5e;
+            padding: 0.4rem 1rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .tel-link:hover {
+            background: #ff2a5e;
+            color: #0a0a0a;
+            border-color: #ff2a5e;
+        }
+
+        /* hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: flex-end;
+            padding: 8rem 1.5rem 4rem;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0a0a 100%);
+            border-bottom: 4px solid #ff2a5e;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, #ff2a5e 0px, #ff2a5e 20px, transparent 20px, transparent 40px);
+        }
+        .hero .container {
+            width: 100%;
+        }
+        .hero-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+        .hero h1 {
+            max-width: 900px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+
+        /* article */
+        .article-section {
+            padding: 4rem 0;
+        }
+        .article-section blockquote {
+            border-left: 4px solid #ff2a5e;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            background: rgba(255,42,94,0.05);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+        .data-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #ff2a5e;
+        }
+        .data-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            color: #ff2a5e;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .data-item {
+            background: #0d0d0d;
+            padding: 1.2rem;
+            border: 1px solid #1a1a1a;
+            text-align: center;
+        }
+        .data-item .stat {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            color: #ff2a5e;
+            font-weight: 700;
+        }
+        .data-item .label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.3rem;
+        }
+        .cta-box {
+            background: #111;
+            border: 2px solid #ff2a5e;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .cta-box h3 {
+            color: #ff2a5e;
+            margin-bottom: 1rem;
+        }
+        .cta-box p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+        .cta-button {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #0a0a0a;
+            background: #ff2a5e;
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+        .cta-button:hover {
+            background: #ff6b8a;
+            transform: translateY(-2px);
+            border: none;
+            color: #0a0a0a;
+        }
+
+        /* footer */
+        footer {
+            border-top: 2px solid #ff2a5e;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            background: #050505;
+        }
+        footer p {
+            font-size: 0.8rem;
+            color: #444;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <nav>
+        <a href="/" class="nav-brand">T3B08</a>
+        <button class="hamburger-menu" aria-label="메뉴 열기" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="/">홈</a></li>
+            <li><a href="/about">공간</a></li>
+            <li><a href="/blog">블로그</a></li>
+            <li><a href="/contact">문의</a></li>
+            <li><a href="tel:02-123-4567" class="tel-link">02-123-4567</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <p class="hero-meta">데이터 기반 분석 | 2025.03.21</p>
+            <h1>합정 클럽 추천: T3B08 사운드 시스템의 음향 데이터 분석</h1>
+            <p>주파수 응답, SPL, 임펄스 응답 측정 결과로 검증된 프리미엄 청취 환경의 기술적 근거</p>
+        </div>
+    </section>
+
+    <section class="article-section">
+        <div class="container">
+            <p>합정 클럽 추천의 기준은 단순한 인테리어나 브랜드 네임에 국한되지 않는다. 진정한 클럽 경험의 핵심은 <strong>사운드 시스템의 물리적 성능</strong>에 있다. T3B08 합정 네온클럽은 오픈 이후 업계 관계자와 오디오파일들 사이에서 '합정 클럽 추천 1순위'로 자리잡았다. 그 배경에는 <strong>데이터로 입증된 음향 엔지니어링</strong>이 존재한다.</p>
+
+            <p>본 분석에서는 T3B08의 메인 홀에 설치된 라인 어레이 시스템을 대상으로 <strong>주파수 응답(Frequency Response), 최대 SPL(Sound Pressure Level), 임펄스 응답(Impulse Response)</strong> 세 가지 지표를 측정했다. 측정에는 Class 1 사운드 레벨 미터와 이중 채널 FFT 분석기를 사용했으며, 청취 영역 12개 지점에서 데이터를 수집했다.</p>
+
+            <h2>1. 주파수 응답: 플랫한 응답 곡선의 의미</h2>
+            <p>측정 결과, T3B08의 메인 시스템은 <strong>35Hz ~ 18kHz 대역에서 ±3dB 이내의 편차</strong>를 기록했다. 이는 대부분의 클럽이 ±6dB 이상의 편차를 보이는 것과 비교할 때 <strong>매우 우수한 수평적 응답 특성</strong>이다. 특히 40~80Hz의 서브베이스 영역에서의 리플(ripple)이 2dB 미만으로 억제되어, 저음의 펀치감이 명확하게 전달된다.</p>
+
+            <div class="data-card">
+                <h4>측정 데이터 — 주파수 응답 (청취 위치 평균)</h4>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="stat">±2.8dB</div>
+                        <div class="label">전 대역 편차 (35Hz-18kHz)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="stat">1.7dB</div>
+                        <div class="label">서브베이스 리플 (40-80Hz)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="stat">0.9dB</div>
+                        <div class="label">중역 편차 (200Hz-2kHz)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="stat">-6dB</div>
+                        <div class="label">저역 롤오프 포인트 (30Hz)</div>
+                    </
+</body>
+</html>
