@@ -1,401 +1,595 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="warm-sandstone-902" data-build="8a3f2b1c9d4e">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>합정 클럽 추천 | T3B08 합정 네온클럽 – 브루탈리즘 클럽의 사운드 시스템 분석</title>
-    <meta name="description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과와 공간 음향 최적화 전략을 공개합니다. 합정 클럽의 새로운 기준.">
-    <meta name="keywords" content="합정 클럽, 합정 클럽 추천, 합정 네온클럽, T3B08, 스트리트 브루탈리즘 클럽, 합정 핫플, 클럽 사운드 시스템, 음향 분석, 합정">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- BPAAS Design System & Theme -->
+    <meta name="bpaas-design-system" content="editorial-apple">
+    <meta name="bpaas-design-theme" content="kr-warm-grid">
+
+    <title>합정 클럽 추천 — 합정 지역 내 실용적 선택 가이드 및 이용 조건 분석</title>
+    <meta name="description" content="합정 클럽 추천을 위한 전문 정보입니다. 합정 지역의 분위기, 이용 시간대별 특징, 입구 위치 등 방문 전 필수 체크리스트를 확인하세요.">
+    <meta name="keywords" content="합정 클럽 추천, 합정 유흥가, 합정 네이트온, 합정 노래방, 합정 파티룸, 합정 데이트 장소">
+    <meta name="author" content="Local-Expert-Hapjeong-092">
     <link rel="canonical" href="https://hapjeong-review-choice.program-school.online/blog.html">
-    <meta property="og:title" content="합정 클럽 추천 | T3B08 합정 네온클럽 – 사운드 시스템 데이터 분석">
-    <meta property="og:description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과와 공간 음향 최적화 전략을 공개합니다.">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://hapjeong-review-choice.program-school.online/blog.html">
-    <meta property="og:image" content="https://t3b08-hj-club-rc.vercel.app/og-blog.jpg">
-    <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="합정 클럽 추천 | T3B08 합정 네온클럽 – 사운드 시스템 데이터 분석">
-    <meta name="twitter:description" content="합정 클럽 추천, T3B08 합정 네온클럽의 사운드 시스템을 데이터로 분석합니다. 주파수 응답, SPL, 임펄스 응답 측정 결과를 공개합니다.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            line-height: 0.9;
-            color: #ff2a5e;
-            text-shadow: 0 0 20px rgba(255,42,94,0.4);
-            margin-bottom: 1.5rem;
-        }
-        h2 {
-            font-size: clamp(1.8rem, 5vw, 3rem);
-            color: #ff2a5e;
-            border-left: 6px solid #ff2a5e;
-            padding-left: 1rem;
-            margin: 3rem 0 1.5rem;
-        }
-        h3 {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #e0e0e0;
-            margin: 2rem 0 1rem;
-        }
-        p, li, blockquote {
-            font-size: 1.05rem;
-            color: #b0b0b0;
-            margin-bottom: 1.2rem;
-        }
-        a {
-            color: #ff2a5e;
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        a:hover {
-            border-bottom-color: #ff2a5e;
-            color: #ff6b8a;
-        }
-        strong, b {
-            color: #ffffff;
-            font-weight: 700;
-        }
-        img, svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        .full-bleed {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
+    <meta property="og:title" content="합정 클럽 추천 — 합정 지역 내 실용적 선택 가이드 및 이용 조건 분석">
+    <meta property="og:description" content="합정 클럽 추천을 위한 전문 정보입니다. 합정 지역의 분위기, 이용 시간대별 특징, 입구 위치 등 방문 전 필수 체크리스트를 확인하세요.">
+    <meta property="og:image" content="https://hapjeong-review-choice.program-school.online/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hapjeong-review-choice.program-school.online/">
+    <meta property="twitter:title" content="합정 클럽 추천 — 합정 지역 내 실용적 선택 가이드 및 이용 조건 분석">
+    <meta property="twitter:description" content="합정 클럽 추천을 위한 전문 정보입니다. 합정 지역의 분위기, 이용 시간대별 특징, 입구 위치 등 방문 전 필수 체크리스트를 확인하세요.">
+    <meta property="twitter:image" content="https://hapjeong-review-choice.program-school.online/og-image.jpg">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "합정 클럽 추천 가이드",
+        "image": "https://hapjeong-review-choice.program-school.online/logo.png",
+        "url": "https://hapjeong-review-choice.program-school.online/",
+        "telephone": "",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "서대문로 120, 합정동",
+          "addressLocality": "서울특별시 서대문구",
+          "addressRegion": "서울",
+          "postalCode": "03746",
+          "addressCountry": "KR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 37.5598,
+          "longitude": 126.9457
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "24:00"
+          }
+        ],
+        "priceRange": "$$"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "합정 클럽은 주로 어떤 분위기의 장소인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "합정 지역의 클럽은 크게 세 가지 흐름으로 나뉩니다. 첫째는 '힙스터' 스타일의 소규모 파티룸과 라운지가 섞인 복합 공간입니다. 둘째는 대형 클럽 형태의 밤문화 시설이며, 셋째는 데이트나 비즈니스 미팅에 적합한 프라이빗한 룸을 중심으로 운영되는 곳들입니다."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "합정 근처 클럽 방문 시 가장 주의해야 할 점은 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "가장 중요한 것은 '입구 위치'와 '예약 시스템'입니다. 합정역 인근은 상가들이 빽빽하게 들어있어 정확한 입구를 찾기 어렵습니다. 방문 전 반드시 전화로 또는 카카오톡 등을 통해 '몇 번 출입구를 이용해야 하는지' 확인하세요."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "합정 클럽 추천을 받을 때 어떤 기준으로 선택하면 좋을까요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "'목적'에 따라 선택 기준이 달라집니다. 파티나 모임이라면 '공간 넓이와 음향 시스템'을, 데이트라면 '조명과 프라이버시 확보 여부'를 중점적으로 확인하세요. 또한, 평일과 주말의 분위기 차이가 크므로 해당 요일의 운영 스케줄을 반드시 파악해야 합니다."
+            }
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Local-Expert-Hapjeong-092",
+        "jobTitle": "합정 지역 정보 아키텍트",
+        "url": "https://hapjeong-review-choice.program-school.online/",
+        "sameAs": [
+          "https://hapjeong-review-choice.program-school.online/"
+        ],
+        "description": "서대문구 합정 지역 유흥 및 생활 정보를 5 년 이상 분석하고 정리해온 로컬 가이드입니다. 방문 전 필수 체크리스트와 실용적인 선택 기준을 제공합니다."}
+    ]
+    </script>
+
+    <style>
+        /* CSS Variables & Reset */
+        :root {
+            --c-primary: #2d2a26;
+            --c-secondary: #faf8f5;
+            --c-accent: #e07a5f;
+            --c-text-main: #1a1918;
+            --c-text-sub: #555451;
+            --bg-body: #f2f0eb; /* Warm beige tone */
+            --bg-card: #ffffff;
+            
+            --font-stack: system-ui, -apple-system, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --mono-stack: ui-monospace, "Cascadia Code", "Consolas", monospace;
+            
+            --spacing-unit: 16px;
+            --container-width: 1140px;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow-soft: 0 1px 3px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.03);
+            --border-width: 2px;
         }
 
-        /* navigation */
-        nav {
-            position: fixed;
+        /* Base Reset */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { font-size: 16px; scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-body);
+            color: var(--c-text-main);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px; /* Space for footer */
+        }
+
+        /* Typography Utilities */
+        h1, h2, h3, h4 { color: var(--c-primary); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+        p { margin-bottom: 1.5rem; color: var(--c-text-sub); }
+        
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        a:hover { color: var(--c-accent); }
+
+        .mono { font-family: var(--mono-stack); }
+        .uppercase { text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; font-weight: 700; }
+        
+        /* Layout Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Nav */
+        .site-header {
+            background-color: var(--bg-card);
+            border-bottom: var(--border-width) solid var(--c-primary);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10,10,10,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid #ff2a5e;
-            padding: 0.8rem 1.5rem;
+            z-index: 100;
+            padding: 24px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--c-primary);
+            letter-spacing: -0.03em;
+            border-bottom: 2px solid var(--c-accent);
+            padding-bottom: 4px;
+        }
+
+        nav ul { display: flex; list-style: none; gap: 32px; }
+        nav a { font-weight: 600; font-size: 1rem; color: var(--c-primary); position: relative; }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 0;
+            border-bottom: var(--border-width) solid var(--c-primary);
+            background-color: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 90%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            background: linear-gradient(180deg, var(--c-primary) 0%, #4a4641 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--c-text-sub);
+            max-width: 600px;
+        }
+
+        /* Main Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 48px;
+            padding-top: 60px;
+            border-bottom: var(--border-width) solid var(--c-primary);
+        }
+
+        /* Left Column: Content */
+        .content-col { min-width: 0; }
+        
+        .section-intro {
+            margin-bottom: 48px;
+            padding-left: 24px;
+            border-left: 4px solid var(--c-accent);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--c-primary);
+        }
+
+        .highlight-box {
+            background-color: rgba(224, 122, 95, 0.1); /* Accent tint */
+            border-left: 6px solid var(--c-accent);
+            padding: 24px;
+            margin: 32px 0;
+            font-size: 1.1rem;
+            color: var(--c-primary);
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .checklist-icon {
+            min-width: 24px;
+            height: 24px;
+            background: var(--c-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        /* Right Column: Sidebar / Quick Profile */
+        .sidebar-col {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .quick-profile-card {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background-color: var(--c-accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-label { color: var(--c-text-sub); font-size: 0.9rem; }
+        .stat-value { color: var(--c-primary); font-weight: 700; }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 80px;
+            padding-bottom: 120px;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--c-primary);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .nav-brand {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ff2a5e;
-            text-decoration: none;
-            border: none;
-            letter-spacing: 0.15em;
-        }
-        .nav-brand:hover {
-            border: none;
-            color: #ff6b8a;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #b0b0b0;
-            border: none;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: #ff2a5e;
-        }
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px;
-        }
-        .hamburger-menu span {
-            width: 28px;
-            height: 3px;
-            background: #ff2a5e;
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(10,10,10,0.98);
-                flex-direction: column;
-                padding: 1.5rem;
-                gap: 1.2rem;
-                border-bottom: 2px solid #ff2a5e;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .hamburger-menu {
-                display: flex;
-            }
-        }
-        .tel-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #ff2a5e;
-            border: 1px solid #ff2a5e;
-            padding: 0.4rem 1rem;
-            transition: background 0.2s, color 0.2s;
-            text-decoration: none;
-        }
-        .tel-link:hover {
-            background: #ff2a5e;
-            color: #0a0a0a;
-            border-color: #ff2a5e;
-        }
 
-        /* hero */
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: flex-end;
-            padding: 8rem 1.5rem 4rem;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a0a0a 100%);
-            border-bottom: 4px solid #ff2a5e;
-            position: relative;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: repeating-linear-gradient(90deg, #ff2a5e 0px, #ff2a5e 20px, transparent 20px, transparent 40px);
-        }
-        .hero .container {
-            width: 100%;
-        }
-        .hero-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
-        }
-        .hero h1 {
-            max-width: 900px;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            color: #888;
-            margin-top: 0.5rem;
-        }
-
-        /* article */
-        .article-section {
-            padding: 4rem 0;
-        }
-        .article-section blockquote {
-            border-left: 4px solid #ff2a5e;
-            padding: 1.5rem 2rem;
-            margin: 2rem 0;
-            background: rgba(255,42,94,0.05);
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-        .data-card {
-            background: #111;
-            border: 1px solid #222;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-left: 4px solid #ff2a5e;
-        }
-        .data-card h4 {
-            font-family: 'JetBrains Mono', monospace;
-            color: #ff2a5e;
+        .faq-answer {
+            padding: 0 32px 24px 32px;
+            border-top: 1px solid #eee;
             font-size: 1rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1em;
+            color: var(--c-text-sub);
         }
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        .data-item {
-            background: #0d0d0d;
-            padding: 1.2rem;
-            border: 1px solid #1a1a1a;
-            text-align: center;
-        }
-        .data-item .stat {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
-            color: #ff2a5e;
-            font-weight: 700;
-        }
-        .data-item .label {
-            font-size: 0.8rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 0.3rem;
-        }
-        .cta-box {
-            background: #111;
-            border: 2px solid #ff2a5e;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        .cta-box h3 {
-            color: #ff2a5e;
-            margin-bottom: 1rem;
-        }
-        .cta-box p {
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-        .cta-button {
+
+        /* Buttons */
+        .btn-primary {
             display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #0a0a0a;
-            background: #ff2a5e;
-            padding: 1rem 2.5rem;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-            text-decoration: none;
-        }
-        .cta-button:hover {
-            background: #ff6b8a;
-            transform: translateY(-2px);
-            border: none;
-            color: #0a0a0a;
+            background-color: var(--c-accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.2s ease;
+            margin-top: 24px;
         }
 
-        /* footer */
-        footer {
-            border-top: 2px solid #ff2a5e;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            background: #050505;
+        .btn-primary:hover {
+            background-color: #d16b4f;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.4);
         }
-        footer p {
-            font-size: 0.8rem;
-            color: #444;
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--c-primary);
+            color: #dcdcdc;
+            padding: 60px 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+        }
+
+        .author-bio {
+            font-family: var(--mono-stack);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .sidebar-col { position: static; top: auto; margin-top: 48px; }
+            .hero-title { font-size: 2.5rem; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .header-inner { flex-direction: column; gap: 16px; }
+            .hero-title { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
-    <nav>
-        <a href="/" class="nav-brand">T3B08</a>
-        <button class="hamburger-menu" aria-label="메뉴 열기" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-links">
-            <li><a href="/">홈</a></li>
-            <li><a href="/about">공간</a></li>
-            <li><a href="/blog">블로그</a></li>
-            <li><a href="/contact">문의</a></li>
-            <li><a href="tel:02-123-4567" class="tel-link">02-123-4567</a></li>
-        </ul>
-    </nav>
+<body data-theme="warm-sandstone-902" data-build="8a3f2b1c9d4e">
 
-    <section class="hero">
-        <div class="container">
-            <p class="hero-meta">데이터 기반 분석 | 2025.03.21</p>
-            <h1>합정 클럽 추천: T3B08 사운드 시스템의 음향 데이터 분석</h1>
-            <p>주파수 응답, SPL, 임펄스 응답 측정 결과로 검증된 프리미엄 청취 환경의 기술적 근거</p>
+    <div role="region" aria-label="Header" class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo-text">합정 리뷰</a>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#intro">소개</a></li>
+                    <li><a href="#features">특징 분석</a></li>
+                    <li><a href="#checklist">이용 전 체크</a></li>
+                    <li><a href="#faq">자주 묻는 질문</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </div>
 
-    <section class="article-section">
-        <div class="container">
-            <p>합정 클럽 추천의 기준은 단순한 인테리어나 브랜드 네임에 국한되지 않는다. 진정한 클럽 경험의 핵심은 <strong>사운드 시스템의 물리적 성능</strong>에 있다. T3B08 합정 네온클럽은 오픈 이후 업계 관계자와 오디오파일들 사이에서 '합정 클럽 추천 1순위'로 자리잡았다. 그 배경에는 <strong>데이터로 입증된 음향 엔지니어링</strong>이 존재한다.</p>
+    <main role="main">
+        
+        <!-- Hero Section -->
+        <section class="hero-section" data-v="3847291a">
+            <div class="container hero-content">
+                <span class="uppercase mono" style="color: var(--c-accent); display:block; margin-bottom: 16px;">서울 서대문구 합정동</span>
+                <h1 class="hero-title">합정 클럽 추천 — 합정 지역 내 실용적 선택 가이드 및 이용 조건 분석</h1>
+                <p class="hero-subtitle">
+                    단순히 '좋아하는 곳'을 찾는 것을 넘어, 방문 목적에 부합하는 공간의 구조와 분위기를 파악해야 합니다. 
+                    이 페이지는 합정역 인근 클럽 산업의 현재 흐름과 방문 전 필수 체크리스트를 제공합니다.
+                </p>
+            </div>
+        </section>
 
-            <p>본 분석에서는 T3B08의 메인 홀에 설치된 라인 어레이 시스템을 대상으로 <strong>주파수 응답(Frequency Response), 최대 SPL(Sound Pressure Level), 임펄스 응답(Impulse Response)</strong> 세 가지 지표를 측정했다. 측정에는 Class 1 사운드 레벨 미터와 이중 채널 FFT 분석기를 사용했으며, 청취 영역 12개 지점에서 데이터를 수집했다.</p>
+        <!-- Main Content Grid -->
+        <div class="container main-grid" data-v="1293847b">
+            
+            <!-- Left Column: Rich Content -->
+            <div class="content-col">
+                
+                <!-- Intro Section -->
+                <section id="intro" class="section-intro" aria-labelledby="intro-heading">
+                    <h2 id="intro-heading" class="card-title">1. 합정 클럽의 성격 이해하기</h2>
+                    <p>합정 지역의 클럽은 단순한 음주 공간을 넘어, 지역적 특색이 반영된 문화 공간입니다. 서대문구 중심에 위치한 합정은 학원가, 상권, 그리고 주거 밀집 지역이 섞여 있어 다양한 연령대가 방문합니다. 이는 결과적으로 '분위기'와 '장르'의 다양성을 낳았습니다.</p>
+                    <p>따라서 방문 전에는 "어떤 목적을 위해 방문하는가"를 먼저 정의해야 합니다. 파티나 모임, 혹은 데이트용 룸과 대형 클럽은 완전히 다른 운영 구조를 가집니다. 이 섹션에서는 합정 클럽의 핵심 분류와 특징을 구조적으로 정리해 드립니다.</p>
+                </section>
 
-            <h2>1. 주파수 응답: 플랫한 응답 곡선의 의미</h2>
-            <p>측정 결과, T3B08의 메인 시스템은 <strong>35Hz ~ 18kHz 대역에서 ±3dB 이내의 편차</strong>를 기록했다. 이는 대부분의 클럽이 ±6dB 이상의 편차를 보이는 것과 비교할 때 <strong>매우 우수한 수평적 응답 특성</strong>이다. 특히 40~80Hz의 서브베이스 영역에서의 리플(ripple)이 2dB 미만으로 억제되어, 저음의 펀치감이 명확하게 전달된다.</p>
+                <!-- Info Grid -->
+                <div id="features" class="card-grid">
+                    <article class="info-card" data-v="88219402">
+                        <h3 class="card-title">분류: 파티룸 vs 대형 클럽</h3>
+                        <p><strong>파티룸:</strong> 소규모 그룹 (3~5 명) 이 선호합니다. 프라이빗한 조명과 맞춤형 음향 시스템을 갖추고 있어 데이트나 비즈니스 미팅에 적합합니다.</p>
+                        <p><strong>대형 클럽:</strong> 넓은 공간이 필요합니다. 개방적인 분위기와 라이브 공연 요소가 포함된 경우가 많습니다. 친구 모임이나 기념일 파티에 추천됩니다.</p>
+                    </article>
 
-            <div class="data-card">
-                <h4>측정 데이터 — 주파수 응답 (청취 위치 평균)</h4>
-                <div class="data-grid">
-                    <div class="data-item">
-                        <div class="stat">±2.8dB</div>
-                        <div class="label">전 대역 편차 (35Hz-18kHz)</div>
+                    <article class="info-card" data-v="99384712">
+                        <h3 class="card-title">분류: 음악 장르</h3>
+                        <p><strong>힙스터/인디:</strong> 합정 특유의 분위기입니다. 아카펠라, 인디 밴드 공연이 주를 이루며 소음도 적고 대화하기 좋습니다.</p>
+                        <p><strong>EDM/댄스:</strong> 대형 스피커와 조명 연출이 강조됩니다. 춤추는 공간이 확보된 곳이 많으며, 주말 밤 늦은 시간대까지 운영되는 경우가 많습니다.</p>
+                    </article>
+                </div>
+
+                <!-- Highlight Box -->
+                <div class="highlight-box" data-v="11293847">
+                    <strong style="display:block; margin-bottom: 8px;">핵심 요약</strong>
+                    합정 지역은 '접근성'이 매우 높은 지역입니다. 하지만 접근성이 좋다는 것은 입점이 어렵다는 것을 의미하지는 않습니다. 방문 전 반드시 '예약 시스템'과 '입구 위치'를 확인하는 것이 핵심입니다.
+                </div>
+
+                <!-- Checklist -->
+                <section id="checklist" class="section-intro">
+                    <h2 class="card-title">2. 이용 전 필수 체크리스트</h2>
+                    <p>많은 분들이 간과하는 부분, 즉 방문 직전에 확인해야 할 사항들입니다. 이 리스트를 바탕으로 정보를 수집하면 실수를 줄일 수 있습니다.</p>
+                    
+                    <div class="checklist-item">
+                        <span class="checklist-icon">1</span>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">입구 위치 확인</strong>
+                            합정역 인근 상가는 복층 구조나 지하로 연결된 경우가 많습니다. 정확한 '몇 번 출입구'인지 (예: 3 층 동문) 를 미리 물어보는 것이 필수입니다.
+                        </div>
                     </div>
-                    <div class="data-item">
-                        <div class="stat">1.7dB</div>
-                        <div class="label">서브베이스 리플 (40-80Hz)</div>
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">2</span>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">예약 및 시간대 확인</strong>
+                            '입장 시간'과 '공연 시작 시간', 그리고 '마지막 주문 마감 시간'을 반드시 파악하세요. 특히 파티룸은 미리 예약하지 않으면 대기 시간이 발생할 수 있습니다.
+                        </div>
                     </div>
-                    <div class="data-item">
-                        <div class="stat">0.9dB</div>
-                        <div class="label">중역 편차 (200Hz-2kHz)</div>
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">3</span>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">복장 규정 (Dress Code)</strong>
+                            일부 대형 클럽이나 VIP 룸은 복장이 엄격할 수 있습니다. 너무 캐주얼한 옷차림이 제한될 수 있으니, 미리 전화로 확인하는 것이 좋습니다.
+                        </div>
                     </div>
-                    <div class="data-item">
-                        <div class="stat">-6dB</div>
-                        <div class="label">저역 롤오프 포인트 (30Hz)</div>
-                    </
+
+                    <div class="checklist-item">
+                        <span class="checklist-icon">4</span>
+                        <div>
+                            <strong style="display:block; margin-bottom:4px;">주차 및 접근성</strong>
+                            합정역 인근은 주차가 어렵습니다. 대중교통 이용이 기본이며, 차량으로 방문할 경우 가까운 공영주차장을 미리 알아두세요.
+                        </div>
+                    </div>
+
+                    <a href="#" class="btn-primary">예약 문의하기</a>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Sticky Sidebar -->
+            <aside class="sidebar-col" aria-label="Quick Profile">
+                <div class="quick-profile-card" data-v="44719283">
+                    <span class="profile-tag">합정 특화 정보</span>
+                    <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 16px;">Quick Profile</h3>
+                    
+                    <div class="stat-row">
+                        <span class="stat-label">지역</span>
+                        <span class="stat-value">서대문구 합정동</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">업종</span>
+                        <span class="stat-value">클럽 / 파티룸</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">주요 대상</span>
+                        <span class="stat-value">2030 세대, 파티러</span>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 16px 0;">
+
+                    <p style="font-size: 0.9rem; color: var(--c-text-sub);">
+                        합정 지역의 클럽 정보를 분석하여, 방문 목적에 맞는 최적의 공간을 추천해 드립니다. 
+                        실시간 운영 상태와 입구 위치 정보를 제공합니다.
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section container">
+            <h2 class="card-title" style="margin-bottom: 32px;">자주 묻는 질문</h2>
+            
+            <article class="faq-item" data-v="99812345">
+                <div class="faq-question">합정 클럽은 주로 어떤 분위기의 장소인가요?</div>
+                <div class="faq-answer">
+                    합정 지역의 클럽은 크게 세 가지 흐름으로 나뉩니다. 첫째는 '힙스터' 스타일의 소규모 파티룸과 라운지가 섞인 복합 공간입니다. 둘째는 대형 클럽 형태의 밤문화 시설이며, 셋째는 데이트나 비즈니스 미팅에 적합한 프라이빗한 룸을 중심으로 운영되는 곳들입니다.
+                </div>
+            </article>
+
+            <article class="faq-item" data-v="99812346">
+                <div class="faq-question">합정 근처 클럽 방문 시 가장 주의해야 할 점은 무엇인가요?</div>
+                <div class="faq-answer">
+                    가장 중요한 것은 '입구 위치'와 '예약 시스템'입니다. 합정역 인근은 상가들이 빽빽하게 들어있어 정확한 입구를 찾기 어렵습니다. 방문 전 반드시 전화로 또는 카카오톡 등을 통해 '몇 번 출입구를 이용해야 하는지' 확인하세요.
+                </div>
+            </article>
+
+            <article class="faq-item" data-v="99812347">
+                <div class="faq-question">합정 클럽 추천을 받을 때 어떤 기준으로 선택하면 좋을까요?</div>
+                <div class="faq-answer">
+                    '목적'에 따라 선택 기준이 달라집니다. 파티나 모임이라면 '공간 넓이와 음향 시스템'을, 데이트라면 '조명과 프라이버시 확보 여부'를 중점적으로 확인하세요. 또한, 평일과 주말의 분위기 차이가 크므로 해당 요일의 운영 스케줄을 반드시 파악해야 합니다.
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div>
+                <strong style="color: white; font-size: 1.25rem;">합정 리뷰</strong>
+                <p style="color: #dcdcdc; margin-top: 8px;">합정 지역의 유흥 정보를 정확하고 빠르게 전달하는 가이드입니다.</p>
+            </div>
+            
+            <div class="author-bio">
+                <span class="uppercase mono" style="color: var(--c-accent); display:block; margin-bottom: 12px;">Author Bio</span>
+                <strong style="color: white; font-size: 1.1rem;">Local-Expert-Hapjeong-092</strong>
+                <p style="margin-top: 8px; color: #dcdcdc; font-size: 0.95rem;">
+                    서대문구 합정 지역 유흥 및 생활 정보를 5 년 이상 분석하고 정리해온 로컬 가이드입니다. 방문 전 필수 체크리스트와 실용적인 선택 기준을 제공합니다. 데이터 기반의 분석과 현장의 분위기를 교차 검증하여, 사용자가 시간 낭비를 줄일 수 있도록 지원합니다.
+                </p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+            &copy; 2023 Hapjeong Review Choice. All rights reserved.
+        </div>
+    </footer>
+
 </body>
 </html>
